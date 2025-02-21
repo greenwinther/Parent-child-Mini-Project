@@ -2,7 +2,7 @@ import { useState } from "react";
 import Button from "../components/Button";
 import InputField from "../components/Inputfield";
 import PokeCard from "./PokeCard";
-import Pokets from "../types/types";
+import { Pokets } from "../types/types";
 
 export const PokeForm = () => {
 	const [pokets, setPokets] = useState<Pokets[]>([]);
