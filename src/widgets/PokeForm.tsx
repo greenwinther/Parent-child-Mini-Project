@@ -31,6 +31,7 @@ export const PokeForm = () => {
 				title="Submit"
 				onClick={() => setPokets([...pokets, { name: inputName, type: inputType }])}
 			/>
+			<Button id="clearBtn" title="Clear" onClick={() => setPokets([])} />
 			<PokeList pokets={pokets} setPokets={setPokets} inputName={inputName} inputType={inputType} />
 		</>
 	);
