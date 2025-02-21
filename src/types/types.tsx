@@ -6,7 +6,7 @@ export type Pokets = {
 	resistance: string; // NumberedType
 };
 
-export type NumberedType = {
+export type TypeStat = {
 	type: PokemonType;
 	amount: number;
 };
