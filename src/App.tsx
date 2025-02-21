@@ -1,5 +1,4 @@
-import { useState } from "react";
-import "./App.css";
+import "./App.scss";
 import { PokeForm } from "./widgets/PokeForm";
 
 function App() {
