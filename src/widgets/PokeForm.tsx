@@ -2,7 +2,7 @@ import { useState } from "react";
 import Button from "../components/Button";
 import InputField from "../components/Inputfield";
 import PokeCard from "./PokeCard";
-import Pokets from "../types/types";
+import { Pokets } from "../types/types";
 
 export const PokeForm = () => {
 	const [pokets, setPokets] = useState<Pokets[]>([]);
@@ -12,7 +12,9 @@ export const PokeForm = () => {
 	const [inputWeakness, setInputWeakness] = useState("");
 	const [inputResistance, setInputResistance] = useState("");
 
-	const handleSubmit = () => {
+	const handleSubmit = (e: React.MouseEvent<HTMLButtonElement>) => {
+		e.preventDefault();
+
 		setPokets([
 			...pokets,
 			{
@@ -32,7 +34,7 @@ export const PokeForm = () => {
 	};
 
 	return (
-		<div>
+		<form>
 			<InputField
 				id="nameField"
 				title="Name"
@@ -65,10 +67,17 @@ export const PokeForm = () => {
 			/>
 
 			<Button id="submitBtn" title="Submit" onClick={handleSubmit} />
-			<Button id="clearBtn" title="Clear" onClick={() => setPokets([])} />
+			<Button
+				id="clearBtn"
+				title="Clear"
+				onClick={(e) => {
+					e.preventDefault();
+					setPokets([]);
+				}}
+			/>
 			{pokets.map((poket) => (
 				<PokeCard key={poket.name} poket={poket} setPokets={setPokets} />
 			))}
-		</div>
+		</form>
 	);
 };
